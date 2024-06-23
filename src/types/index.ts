@@ -3,6 +3,8 @@ export type ApiListResponse<Type> = {
     items: Type[]
 };
 
+export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
+
 export type FormErrors = Partial<Record<keyof IOrder, string>>;
 
 export type PaymentMethod = 'cash' | 'online' ;

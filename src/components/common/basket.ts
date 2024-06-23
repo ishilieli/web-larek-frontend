@@ -38,7 +38,6 @@ export class Basket extends View<IBasket> {
     }
 
     set total(total: number) {
-        console.log(total);
         this.setText(this._total, String(total));
     }
 }
