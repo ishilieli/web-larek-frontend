@@ -111,7 +111,8 @@ events.on('contacts:submit', () => {
                 content: success.render({
                     total: result.total,
                 })
-            })
+            });
+            appData.clearBasket();
         })
         .catch(err => console.log(err))
 })
@@ -133,13 +134,7 @@ events.on('preview:change', (item: IProduct) => {
     card.buttonTitle = appData.inBasket(item) ? 'Убрать из корзины' : 'В корзину';
 
     modal.render({
-        content: card.render({
-            title: item.title,
-            description: item.description,
-            image: item.image,
-            price: item.price,
-            category: item.category,
-        }),
+        content: card.render(item)
     });
 });
 

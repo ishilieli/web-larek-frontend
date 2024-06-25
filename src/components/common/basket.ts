@@ -25,14 +25,15 @@ export class Basket extends View<IBasket> {
     }
 
     set items(items: HTMLElement[]) {
-        console.log(items)
+        let count = 1;
+        items.forEach(function (item) {
+            item.querySelector('.basket__item-index').textContent = String(count); count++;
+        });
         if (items.length) {
             this._list.replaceChildren(...items);
             this.setDisabled(this._button, false);
         } else {
-            this._list.replaceChildren(createElement<HTMLParagraphElement>('p', {
-                textContent: 'Корзина пуста'
-            }));
+            this._list.replaceChildren(createElement<HTMLParagraphElement>('p', {textContent: 'Корзина пуста'}));
             this.setDisabled(this._button, true);
         }
     }
